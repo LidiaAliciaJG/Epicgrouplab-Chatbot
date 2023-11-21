@@ -1,0 +1,96 @@
+body {
+	background: #210074; /*color de epic*/
+	height: 100vh; /*por defecto a veces body no toma el contenido visualizado en la pantalla, se requiere establecer para definir donde se visualiza; si se oculta esta línea se ve el cambio*/
+	font-family: arial,sans-serif; /*fuentes ya descargadas, instaladas al instalar chrome; se enseña cómo colocar fuentes externas*/
+	/*margin en 0 y padding se ddeja en cero pra quitar ccualquier valoor default*/
+	margin: 0; /*hacia fuera*/
+	padding: 0; /*hacia dentro*/
+	position: relative; /*aqui se coloca el limite para el chat-container, su libertad es exclusivo dentro de body*/ /*relativo a su padre cercano*/
+}
+
+#chat-container { /*cualquier id se menciona con #*/
+	background: white;
+	width: 90%;
+	height: 400px;
+	position: absolute; /*libertad de posicionarse aun si hay otro elemento, se impone peero no con total libertad para limitarle a no irse encima de elementos tipo header*/
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left:0; /*si se ocultan el top a left cero, el margin no se centra*/
+	margin: auto; /*se logra un centradoo de el contenido*/
+	border-radius: 12px; /*12px 12px 40px 12px -> mostrar que se modifica por esquina*/
+	/*input al estar por delante oculta la esquina redondeada -> vamos a hacer que respete los limites y quedarse dentro de su curva: solucion overflow*/
+	overflow: hidden; /*oculta lo que queda fuera del limite de su contenedor padre*/
+	display:flex; /*obligamos a loos elementos a colocarse uno tras otro (a lados)*/
+	flex-direction:column;
+	justify-content: space-between;
+}
+
+#messages {
+	padding: 10px; /*espacio hacia el interior*/
+	overflow: auto;
+	display: flex;
+	flex-direction: column;
+	/*border: 3px solid green; <- para visualizar el div de messages que se creó y ayuda a que con el anterior de justify space se visualice el porque del cambio*/
+}
+
+#message-form {
+	display: flex;
+	background: red; /*#F4F4F4*/
+	padding: 10px 10px 30px 10px; /*dejar los 4 elementos para que se dden cuenta que pueden modificar por los 4 lados*/
+}
+
+#message-input {
+	border: none; /*quitar el borde gris default, tambien se puede poner un color distinto*/
+	padding: 10px;
+	border-radius: 5px;
+	outline: none; /*quuita el efecto tipo hover que al escribir se nota un boorde de color*/
+}
+
+.button-primary {
+	background: #00CFAA; /*colores de epic*/
+	color: black;
+	border: none;
+	padding: 10px;
+	border-radius: 5px;
+	margin-left: 10px;
+	cursor: pointer; /*cambiar el cursoor al ponerse encima del boton*/
+}
+
+.button-primary:hover {
+	/*aqui ya se pueden cambiar estilos al boton solo cuando se posiciona el cursor sobre el boton*/
+	background: #02A386;
+}
+
+.user, .bot {
+	/*estas clases no estan en html, se crean al dar click en el boton de enviar en el form -> se crea en JS*/
+	/* las comas permiten enlistar el mismo estilo para varios elementos*/
+	padding: 10px;
+	border-radius: 5px;
+	margin-bottom: 10px;
+	max-width: 80%; /*si envian un texto grande, se limita a que no tape la pantalla, es un 80% del contenedor en blanco*/
+	word-wrap: break-word; /*romper las palabras para que se ajusten al contenedor, evita que se vean solo palabras que dejan espacio porque la siguiente no cabía*/
+}
+
+.bot {
+	background: #FF3897;
+	color: white;
+	align-self: flex-start; /*el inicio es la izquierda*/
+}
+
+.user {
+	background: #00CFAA;
+	color: white;
+	align-self: flex-end; /*el final es la derecha*/
+}
+
+/*Esto es extra, solo si se desea modificar que en un escritorio no se desee ver el chat enorme*/
+@media (min-width: 600px) { /*que cambie si la pantalla crece // si baja de 600 esto colocado no se ejecuta, solo si la pantalla es arriba de 600*/
+	#chat-container { 
+		width: 350px;
+		top: auto;
+		right: 20px;
+		left: auto;
+		border-radius: 12px 12px 0 0;
+	}
+}
