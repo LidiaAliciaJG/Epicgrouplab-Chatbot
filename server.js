@@ -47,7 +47,7 @@ app.post("/api/chatbot", async (req, res) => {
         )
         const reply = response.data.choices[0].message.content.trim()
 
-        response.json({ reply })
+        res.json({ reply })
     } catch (error) {
         console.error(error.response ? error.response.data : error.message);
         res.status(500).json({ error: 'Error al procesar la solicitud' });
