@@ -19,8 +19,8 @@ async function sendMessage(message) {
 	//esta funcion puede tener errores, si los hay, vamos a pedir que nos notifique
 	try {
 		//intentar:
-		var context = "Eres un bot de respuestas. Tengo una página web de venta donde vas responder cualquier pregunta relacionada a estos temas: Telefono de la empresa: 23234334, procedimiento de pedido: delivery, tipos de productos: frutas, verduras, tubérculos. Procedimiento de reclamo: rápido y fácil."; //conocimiento previo que llega al bot para entrenarlo y que apartir de eso nos responda. Ejemplo: en epic se puede subir toda la información de Epic como horarios, costos, etc,
-		var response = await fetch("/api/chatbot", {
+		const context = "Eres un bot de respuestas. Tengo una página web de venta donde vas responder cualquier pregunta relacionada a estos temas: Telefono de la empresa: 23234334, procedimiento de pedido: delivery, tipos de productos: frutas, verduras, tubérculos. Procedimiento de reclamo: rápido y fácil."; //conocimiento previo que llega al bot para entrenarlo y que apartir de eso nos responda. Ejemplo: en epic se puede subir toda la información de Epic como horarios, costos, etc,
+		const response = await fetch("/api/chatbot", {
 			method: "POST", // -> enviar
 			headers: {
 				"Content-Type": "application/json" //conexión con el envío es como nuestro header en html, nuuestra configuración, se va a enviar contenido del tipo de app json
