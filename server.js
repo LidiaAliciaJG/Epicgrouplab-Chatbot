@@ -33,7 +33,7 @@ app.post("/api/chatbot", async (req, res) => {
                     { role: "system", content: `${context}`},
                     {role: "user", content: `${message}`}
                 ], //se envía al enlace de openai
-                model: "gpt-4-vision-preview",
+                model: "gpt-3.5-turbo",
                 max_tokens: 100,
                 n:1, //requisito de openai
                 temperature: 0.8, //nivel de creatividad 0 a 1

@@ -10,7 +10,7 @@ function addMessage(content, user) {
 	messageElement.innerText = content; //texto ingresado, se mostrará como un globo en la parte del chat
 
 	//aun no se agrega el globo en el espacio en blanco
-	messages.appendChild(messageElement); //le dice a la caja blandca que se agrega lo que se accaba de crear para el mensaje ingresado
+	messages.appendChild(messageElement); //le dice a la caja blanca que se agrega lo que se acaba de crear para el mensaje ingresado
 	messages.scrollTo(0, messages.scrollHeigth); //que nos envíe hasta abajo de todo, comoo whatsapp
 }
 
